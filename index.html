@@ -1,154 +1,821 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SARRASTUfish, la community indipendente dedicata alla pesca, al mare e ai pescatori della Sardegna.">
-    <title>SARRASTUfish | Pesca, Mare e Sardegna</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<title>SARRASTUfish | La community dei pescatori sardi</title>
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f7faf9;
-            color: #173334;
-            line-height: 1.6;
-        }
+<meta name="description" content="SARRASTUfish è la community indipendente dei pescatori sardi. Pesca, mare, amicizia e rispetto della Sardegna.">
+<meta name="theme-color" content="#074B4F">
 
-        header {
-            background: #074b4f;
-            color: white;
-            text-align: center;
-            padding: 65px 20px;
-        }
+<link rel="icon" type="image/png" href="app-icon-512.png">
 
-        header h1 {
-            font-size: clamp(36px, 7vw, 58px);
-            margin: 0;
-            letter-spacing: 1px;
-        }
+<style>
+:root {
+    --sf-deep: #074B4F;
+    --sf-teal: #00A89E;
+    --sf-aqua: #5ED2C6;
+    --sf-sand: #EBC88A;
+    --sf-cream: #FFF6E6;
+    --sf-olive: #6B8E5A;
+    --sf-coral: #E85D3F;
+    --sf-ink: #123437;
+    --sf-muted: #61777A;
+    --sf-line: #D7E7E4;
+    --sf-surface: #FFFFFF;
+    --sf-bg: #F5FBF9;
+}
 
-        header p {
-            font-size: 18px;
-            max-width: 650px;
-            margin: 18px auto 0;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        main {
-            max-width: 850px;
-            margin: 45px auto;
-            padding: 0 20px;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65;
+    color: var(--sf-ink);
+    background: var(--sf-bg);
+}
 
-        h2 {
-            color: #074b4f;
-            margin-top: 0;
-        }
+a {
+    color: inherit;
+}
 
-        .links a {
-            display: block;
-            padding: 15px;
-            margin-top: 12px;
-            background: #eaf5f3;
-            border-radius: 10px;
-            text-decoration: none;
-            color: #074b4f;
-            font-weight: bold;
-        }
+a:focus-visible {
+    outline: 3px solid var(--sf-coral);
+    outline-offset: 4px;
+}
 
-        .links a:hover {
-            background: #d4ebe7;
-        }
+/* NAVIGAZIONE */
 
-        footer {
-            text-align: center;
-            padding: 35px 20px;
-            background: #074b4f;
-            color: white;
-            font-size: 14px;
-        }
+.site-nav {
+    background: var(--sf-deep);
+    color: white;
+}
 
-        footer a {
-            color: white;
-        }
-    </style>
+.nav-inner {
+    max-width: 1150px;
+    margin: auto;
+    padding: 15px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.brand img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.nav-links a:hover {
+    color: var(--sf-aqua);
+}
+
+/* PRESENTAZIONE */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    padding: 85px 20px 95px;
+
+    background:
+        radial-gradient(
+            circle at 12% 15%,
+            rgba(94,210,198,.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(235,200,138,.20),
+            transparent 32%
+        ),
+        linear-gradient(
+            145deg,
+            var(--sf-deep),
+            #086466 60%,
+            var(--sf-teal)
+        );
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: auto;
+}
+
+.hero-logo {
+    display: block;
+    width: 155px;
+    height: 155px;
+    margin: 0 auto 26px;
+    object-fit: contain;
+    border-radius: 34px;
+    box-shadow: 0 18px 45px rgba(0,0,0,.18);
+}
+
+.hero-label {
+    color: var(--sf-sand);
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    margin: 18px 0;
+    font-size: clamp(39px, 7vw, 75px);
+    line-height: 1.12;
+    letter-spacing: -1px;
+    overflow-wrap: anywhere;
+}
+
+.hero-subtitle {
+    max-width: 750px;
+    margin: 24px auto 15px;
+    font-size: clamp(20px, 3vw, 27px);
+    font-weight: 700;
+}
+
+.hero-description {
+    max-width: 680px;
+    margin: auto;
+    color: #def7f3;
+    font-size: 16px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform .2s, background .2s;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-sand {
+    color: var(--sf-deep);
+    background: var(--sf-sand);
+}
+
+.button-outline {
+    color: white;
+    border: 1px solid rgba(255,255,255,.75);
+}
+
+.button-outline:hover {
+    background: rgba(255,255,255,.12);
+}
+
+/* STRUTTURA */
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 0 22px;
+}
+
+.section {
+    padding: 75px 0;
+}
+
+.section-label {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--sf-teal);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin: 0 0 22px;
+    color: var(--sf-deep);
+    font-size: clamp(29px, 4vw, 42px);
+    line-height: 1.2;
+}
+
+.section-description {
+    max-width: 780px;
+    margin: 0;
+    color: var(--sf-muted);
+    font-size: 17px;
+}
+
+/* COMMUNITY */
+
+.intro {
+    background:
+        radial-gradient(
+            circle at 92% 10%,
+            rgba(235,200,138,.20),
+            transparent 30%
+        ),
+        var(--sf-bg);
+}
+
+.intro-box {
+    padding: clamp(28px, 5vw, 55px);
+    background: white;
+    border: 1px solid var(--sf-line);
+    border-radius: 24px;
+    box-shadow: 0 15px 45px rgba(7,75,79,.06);
+}
+
+.intro-box p {
+    color: #456568;
+    font-size: 17px;
+}
+
+.intro-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* FUNZIONALITÀ */
+
+.features {
+    background: var(--sf-cream);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.feature-card {
+    padding: 28px;
+    background: white;
+    border: 1px solid var(--sf-line);
+    border-radius: 20px;
+}
+
+.feature-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 18px;
+    background: #e5f8f4;
+    color: var(--sf-deep);
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.feature-card h3 {
+    margin: 0 0 10px;
+    color: var(--sf-deep);
+    font-size: 20px;
+}
+
+.feature-card p {
+    margin: 0;
+    color: var(--sf-muted);
+    font-size: 15px;
+}
+
+/* PESCA RESPONSABILE */
+
+.responsible {
+    background: linear-gradient(135deg,#e8f8f4,#f9fcf8);
+}
+
+.responsible-box {
+    padding: 35px;
+    background: white;
+    border-left: 6px solid var(--sf-olive);
+    border-radius: 0 20px 20px 0;
+    box-shadow: 0 8px 28px rgba(7,75,79,.05);
+}
+
+.responsible-box p {
+    color: #456568;
+}
+
+.responsible-box strong {
+    color: var(--sf-deep);
+}
+
+/* DOCUMENTI */
+
+.legal {
+    background: white;
+}
+
+.legal-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.legal-card {
+    display: block;
+    padding: 26px;
+    background: var(--sf-bg);
+    border: 1px solid var(--sf-line);
+    border-radius: 16px;
+    text-decoration: none;
+    transition: background .2s;
+}
+
+.legal-card:hover {
+    background: #e6f7f3;
+}
+
+.legal-card h3 {
+    margin: 0 0 10px;
+    color: var(--sf-deep);
+    font-size: 18px;
+}
+
+.legal-card p {
+    margin: 0;
+    color: var(--sf-muted);
+    font-size: 14px;
+}
+
+/* CONTATTI */
+
+.contact {
+    text-align: center;
+}
+
+.contact .section-description {
+    margin: 0 auto 26px;
+}
+
+.contact-email {
+    display: inline-block;
+    max-width: 100%;
+    padding: 15px 24px;
+    background: var(--sf-deep);
+    color: white;
+    border-radius: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 40px 20px;
+    background: var(--sf-deep);
+    color: white;
+    text-align: center;
+}
+
+.footer-name {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.footer-subtitle {
+    color: #d0eeea;
+    font-size: 13px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.footer-links a {
+    color: #d0eeea;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--sf-sand);
+}
+
+.copyright {
+    color: #d0eeea;
+    font-size: 12px;
+}
+
+/* SMARTPHONE */
+
+@media(max-width:850px) {
+    .feature-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+    .legal-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:600px) {
+    .nav-inner {
+        flex-direction: column;
+        padding: 14px 17px;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 60px 18px 70px;
+    }
+
+    .hero-logo {
+        width: 125px;
+        height: 125px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+
+    .container {
+        padding: 0 17px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .responsible-box {
+        padding: 25px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .button,
+    .legal-card {
+        transition: none;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <img src="app-icon-512.png"
-     alt="Logo ufficiale SARRASTUfish"
-     style="width:150px; height:150px; object-fit:cover; border-radius:30px; display:block; margin:0 auto 25px;">
-    <h1>SARRASTUfish</h1>
-    <p>La community indipendente dedicata alla pesca, al mare e alla Sardegna.</p>
+<nav class="site-nav" aria-label="Navigazione principale">
+    <div class="nav-inner">
+        <a class="brand" href="index.html">
+            <img src="app-icon-512.png" alt="">
+            <span>SARRASTUfish</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="#community">Community</a>
+            <a href="#funzionalita">Il progetto</a>
+            <a href="#documenti">Documenti</a>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-inner">
+
+        <img
+            class="hero-logo"
+            src="app-icon-512.png"
+            alt="Logo ufficiale SARRASTUfish"
+        >
+
+        <div class="hero-label">
+            SARDEGNA · MARE · PESCA
+        </div>
+
+        <h1>SARRASTUfish</h1>
+
+        <p class="hero-subtitle">
+            Il nostro mare.<br>
+            La nostra passione.<br>
+            La nostra community.
+        </p>
+
+        <p class="hero-description">
+            Uno spazio indipendente dedicato
+            ai pescatori sardi, alle esperienze condivise
+            e alla conoscenza del nostro mare.
+        </p>
+
+        <div class="hero-actions">
+            <a class="button button-sand" href="#community">
+                Scopri SARRASTUfish
+            </a>
+
+            <a class="button button-outline" href="#documenti">
+                Informazioni ufficiali
+            </a>
+        </div>
+
+    </div>
 </header>
 
-<main>
+<section class="section intro" id="community">
+    <div class="container">
+        <div class="intro-box">
 
-    <section class="card">
-        <h2>Benvenuti a bordo</h2>
+            <span class="section-label">La nostra identità</span>
 
-        <p>
-            SARRASTUfish nasce per riunire gli appassionati di pesca
-            della Sardegna in uno spazio dedicato alla conoscenza
-            del mare, alla condivisione delle esperienze
-            e alla collaborazione tra pescatori.
-        </p>
+            <h2 class="section-title">Benvenuti a bordo</h2>
 
-        <p>
-            Spot di pesca, condizioni meteorologiche e marine,
-            Fishing Bro, Mercatino di Bordo e una community
-            che mette al centro la passione per il nostro mare.
-        </p>
-    </section>
+            <p>
+                SARRASTUfish nasce dalla passione
+                per la pesca e per il mare della Sardegna.
+            </p>
 
-    <section class="card">
-        <h2>Informazioni e documenti ufficiali</h2>
+            <p>
+                Non siamo un social network.
+                Siamo una community semplice,
+                indipendente e dedicata ai pescatori sardi.
+            </p>
 
-        <p>
-            Consulta i documenti relativi al funzionamento
-            e alla tutela degli utenti di SARRASTUfish.
-        </p>
+            <p>
+                Uno spazio dove incontrare altri pescatori,
+                condividere esperienze, conoscere il territorio
+                e vivere il mare con responsabilità.
+            </p>
 
-        <div class="links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="termini.html">Termini di utilizzo</a>
-            <a href="elimina-account.html">Eliminazione account e dati</a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="card">
-        <h2>Contatti</h2>
+<section class="section features" id="funzionalita">
+    <div class="container">
 
-        <p>
-            Per informazioni, assistenza e segnalazioni:
+        <span class="section-label">A bordo di SARRASTUfish</span>
+
+        <h2 class="section-title">
+            Tutto nasce dalla passione per la pesca
+        </h2>
+
+        <p class="section-description">
+            Strumenti e spazi dedicati ai pescatori sardi,
+            senza complicazioni inutili.
         </p>
 
-        <p>
-            <a href="mailto:sarrastufish@gmail.com">
-                sarrastufish@gmail.com
+        <div class="feature-grid">
+
+            <article class="feature-card">
+                <div class="feature-number">01</div>
+                <h3>Bacheca</h3>
+                <p>
+                    Uno spazio per raccontare esperienze
+                    e condividere momenti legati alla pesca.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-number">02</div>
+                <h3>Porto personale</h3>
+                <p>
+                    Il proprio spazio nella community,
+                    con profilo e strumenti personali.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-number">03</div>
+                <h3>Fishing Bro</h3>
+                <p>
+                    Per incontrare altri appassionati
+                    e organizzare uscite di pesca.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-number">04</div>
+                <h3>Mercatino di Bordo</h3>
+                <p>
+                    Uno spazio per annunci e scambi
+                    di attrezzature tra pescatori.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-number">05</div>
+                <h3>Mappe e spot</h3>
+                <p>
+                    Informazioni geografiche da consultare
+                    nel rispetto delle norme e dei divieti vigenti.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-number">06</div>
+                <h3>Meteo e mare</h3>
+                <p>
+                    Informazioni sulle condizioni
+                    meteorologiche e marine.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<section class="section responsible" id="pesca-responsabile">
+    <div class="container">
+
+        <span class="section-label">Rispetto del mare</span>
+
+        <h2 class="section-title">
+            La pesca responsabile fa parte di noi
+        </h2>
+
+        <div class="responsible-box">
+
+            <p>
+                SARRASTUfish promuove il rispetto del mare,
+                della fauna marina e degli ecosistemi della Sardegna.
+            </p>
+
+            <p>
+                <strong>
+                    La presenza di uno spot sulla mappa
+                    non significa che la pesca sia consentita.
+                </strong>
+            </p>
+
+            <p>
+                Prima di pescare, ogni utente deve verificare
+                autonomamente le disposizioni ufficiali vigenti,
+                comprese le norme delle Aree Marine Protette,
+                le ordinanze delle Capitanerie di Porto,
+                i divieti temporanei e le eventuali
+                autorizzazioni necessarie.
+            </p>
+
+            <p>
+                SARRASTUfish non incoraggia la pesca illegale
+                e non promuove attività di pesca
+                nelle aree in cui sono vietate.
+            </p>
+
+            <p>
+                Gli spot hanno finalità informative
+                e non costituiscono autorizzazioni alla pesca.
+            </p>
+
+        </div>
+    </div>
+</section>
+
+<section class="section legal" id="documenti">
+    <div class="container">
+
+        <span class="section-label">Trasparenza</span>
+
+        <h2 class="section-title">
+            Informazioni e documenti ufficiali
+        </h2>
+
+        <p class="section-description">
+            Consulta i documenti relativi
+            al funzionamento della community
+            e alla tutela degli utenti.
+        </p>
+
+        <div class="legal-grid">
+
+            <a class="legal-card" href="privacy.html">
+                <h3>Privacy Policy</h3>
+                <p>
+                    Informazioni sul trattamento
+                    dei dati personali e sui diritti degli utenti.
+                </p>
             </a>
-        </p>
-    </section>
 
-</main>
+            <a class="legal-card" href="termini.html">
+                <h3>Termini di utilizzo</h3>
+                <p>
+                    Le regole per partecipare
+                    alla community SARRASTUfish.
+                </p>
+            </a>
+
+            <a class="legal-card" href="elimina-account.html">
+                <h3>Eliminazione account</h3>
+                <p>
+                    Informazioni sulle procedure
+                    per eliminare l'account e i dati personali.
+                </p>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<section class="section contact" id="contatti">
+    <div class="container">
+
+        <span class="section-label">Restiamo in contatto</span>
+
+        <h2 class="section-title">
+            Contatta SARRASTUfish
+        </h2>
+
+        <p class="section-description">
+            Per informazioni, assistenza o segnalazioni,
+            puoi scriverci tramite email.
+        </p>
+
+        <a
+            class="contact-email"
+            href="mailto:sarrastufish@gmail.com"
+        >
+            sarrastufish@gmail.com
+        </a>
+
+    </div>
+</section>
 
 <footer>
-    <p>© 2026 SARRASTUfish. Tutti i diritti riservati.</p>
-    <p>Una community indipendente dedicata ai pescatori sardi.</p>
+
+    <div class="footer-name">SARRASTUfish</div>
+
+    <p class="footer-subtitle">
+        La community indipendente dei pescatori sardi.
+    </p>
+
+    <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="termini.html">Termini</a>
+        <a href="elimina-account.html">Elimina account</a>
+        <a href="#pesca-responsabile">Pesca responsabile</a>
+        <a href="#contatti">Contatti</a>
+    </div>
+
+    <p class="copyright">
+        &copy; 2026 SARRASTUfish. Tutti i diritti riservati.
+    </p>
+
 </footer>
 
 </body>
